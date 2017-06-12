@@ -68,18 +68,17 @@ module.exports = {
         var inputID = inputEl.getAttribute('id')
         var labelEl = document.querySelector('label[for="' + inputID + '"]')
 
-        if (!labelEl) {
-          return
-        }
+        if (labelEl) {
 
-        showHideLabel(inputEl, labelEl)
+          showHideLabel(inputEl, labelEl)
 
-        this.removeEventListener(inputEl, 'keyup', inputEventHandler, false)
-        this.removeEventListener(inputEl, 'input', inputEventHandler, false)
+          this.removeEventListener(inputEl, 'keyup', inputEventHandler, false)
+          this.removeEventListener(inputEl, 'input', inputEventHandler, false)
 
-        if (!this.config.delegateEvents) {
-          this.addEventListener(inputEl, 'keyup', inputEventHandler, false)
-          this.addEventListener(inputEl, 'input', inputEventHandler, false)
+          if (!this.config.delegateEvents) {
+            this.addEventListener(inputEl, 'keyup', inputEventHandler, false)
+            this.addEventListener(inputEl, 'input', inputEventHandler, false)
+          }
         }
       }
     }
